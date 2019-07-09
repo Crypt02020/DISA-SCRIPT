@@ -1,0 +1,58 @@
+New-Item -Path HKLM:\SOFTWARE\Policies\Microsoft\Windows\ -Name Installer -Force
+Set-ItemProperty -Path HKLM:\SOFTWARE\Policies\Microsoft\Windows\Installer -Name EnableUserControl -value 0
+Set-ItemProperty -Path HKLM:\SOFTWARE\Policies\Microsoft\Windows\ -Name AlwaysInstallElevated -value 0
+Set-ItemProperty –Path HKLM:\SOFTWARE\Policies\Microsoft\Windows\Installer\ -Name SafeForScripting -Value 0
+Set-ItemProperty –Path HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\ -Name DisableAutomaticRestartSignOn -value 0
+New-Item -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\" -Name WinRM
+New-Item -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\WinRM" -Name Client
+Set-ItemProperty -Path HKLM:\SOFTWARE\Policies\Microsoft\Windows\WinRM\Client\ -Name AllowUnencryptedTraffic -Value 0
+Set-ItemProperty -Path HKLM:\SOFTWARE\Policies\Microsoft\Windows\WinRM\Client\ -Name AllowDigest -Value 0
+New-Item -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\WinRM\" -Name Service
+Set-ItemProperty -Path HKLM:\SOFTWARE\Policies\Microsoft\Windows\WinRM\Service\ -Name Allowbasic -Value 0
+Set-ItemProperty -Path HKLM:\SOFTWARE\Policies\Microsoft\Windows\WinRM\Service\ -Name AllowUnencryptedTraffic -Value 0
+Set-ItemProperty -Path HKLM:\SOFTWARE\Policies\Microsoft\Windows\WinRM\Service\ -Name DisableRunAs -Value 0
+New-Item -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\" -Name EventLog
+New-Item -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\EventLog\" -Name Application
+Set-ItemProperty -Path HKLM:\SOFTWARE\Policies\Microsoft\Windows\EventLog\Application\ -Name MaxSize -Value 32768
+New-Item -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\EventLog\" -Name Security
+Set-ItemProperty -Path HKLM:\SOFTWARE\Policies\Microsoft\Windows\EventLog\Security\ -Name MaxSize -Value 1024000
+New-Item -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\EventLog\" -Name System
+Set-ItemProperty -Path HKLM:\SOFTWARE\Policies\Microsoft\Windows\EventLog\System\ -Name MaxSize -Value 32768
+New-Item -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\" -Name Personalization
+Set-ItemProperty -Path HKLM:\SOFTWARE\Policies\Microsoft\Windows\Personalization\ -Name NoLockScreenCamera -Value 1
+Set-ItemProperty -Path HKLM:\SOFTWARE\Policies\Microsoft\Windows\Personalization\ -Name NoLockScreenSlideshow -Value 1
+Set-ItemProperty -Path HKLM:\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip6\Parameters\ -Name DisablelpSourceRouting -Value 2
+Set-ItemProperty -Path HKLM:\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip6\Parameters\ -Name DisableIPSourceRouting -Value 2
+Set-ItemProperty -Path HKLM:\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip6\Parameters\ -Name EnableICMPRedirect -Value 0
+Set-ItemProperty -Path HKLM:\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip6\Parameters\ -Name NoNameReleaseOnDemand -Value 1
+Set-ItemProperty -Path HKLM:\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip6\Parameters\ -Name NoNameReleaseOnDemand -Value 1
+New-Item -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\" -Name LanmanWorkStation 
+Set-ItemProperty -Path HKLM:\SOFTWARE\Policies\Microsoft\Windows\LanmanWorkstation\ -Name AllowInsecureGuestAuth -Value 0
+Set-ItemProperty -Path HKLM:\SOFTWARE\Policies\Microsoft\Windows\WcmSvc\GroupPolicy\ -Name fBlockNonDomain -Value 1
+Set-ItemProperty -Path HKLM:\SOFTWARE\Microsoft\WcmSvc\wifinetworkmanager\config -Name  AutoConnectAllowedOEM -Value 0
+Set-ItemProperty -Path HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System -Name LocalAccountTokenFilterPolicy -Value 0 
+New-Item -Path HKLM:\SYSTEM\CurrentControlSet\Policies\ -Name EarlyLaunch
+Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Policies\EarlyLaunch\" -Name DriverLoadPolicy -Value 3
+New-Item -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\" -Name "Group Policy"
+New-Item -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\Group Policy\" -Name {35378EAC-683F-11D2-A89A-00C04FBBCFA2}
+Set-ItemProperty -Path HKLM:\SOFTWARE\Policies\Microsoft\Windows\Group Policy\{35378EAC-683F-11D2-A89A-00C04FBBCFA2} -Name NoGPOListChanges -Value 0
+New-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\" -Name Printers
+Set-ItemProperty -Path HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Printers -Name DisableWebPnPDownload -Value 1
+Set-ItemProperty -Path HKLM:\SYSTEM\CurrentControlSet\Control\Lsa\ -Name LimitBlankPasswordUse -Value 1
+New-Item -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\CurrentVersion\" -Name Policies
+New-Item -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\CurrentVersion\Policies\" -Name Explorer
+Set-ItemProperty -Path HKLM:\SOFTWARE\Policies\Microsoft\Windows\CurrentVersion\Policies\Explorer -Name NoWebServices -Value 1
+Set-ItemProperty -Path HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Printers\ -Name DisableHTTPPrinting -Value 1
+New-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\" -Name Kerberos
+New-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\Kerberos\" -Name Parameters
+Set-ItemProperty -Path HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\Kerberos\Parameters\ -Name DevicePKInitEnabled -Value 1
+Set-ItemProperty -Path HKLM:\SOFTWARE\Policies\Microsoft\Windows\System\ -Name DontDisplayNetworkSelectionUI -Value 1
+Set-ItemProperty -Path HKLM:\SOFTWARE\Policies\Microsoft\Windows\System\ -Name EnumerateLocalUsers -Value 0
+Set-ItemProperty -Path HKLM:\SYSTEM\CurrentControlSet\Control\Lsa\ -Name SCENoApplyLegacyAuditPolicy -Value 1
+Set-ItemProperty -Path HKLM:\SYSTEM\CurrentControlSet\Services\Netlogon\Parameters -Name RequireSignOrSea -Value 1
+Set-ItemProperty -Path HKLM:\SYSTEM\CurrentControlSet\Services\Netlogon\Parameters -Name SealSecureChannel -Value 1
+New-Item -Path "HKLM:\SOFTWARE\Policies\Microsoft\" -Name Power
+New-Item -Path "HKLM:\SOFTWARE\Policies\Microsoft\Power\" -Name PowerSettings
+New-Item -Path "HKLM:\SOFTWARE\Policies\Microsoft\Power\PowerSettings" -Name 0e796bdb-100d-47d6-a2d5-f7d2daa51f51
+Set-ItemProperty -Path HKLM:\SOFTWARE\Policies\Microsoft\Power\PowerSettings\0e796bdb-100d-47d6-a2d5-f7d2daa51f51\ -Name DCSettingIndex -Value 1
+Set-ItemProperty -Path HKLM:\SYSTEM\CurrentControlSet\Services\Netlogon\Parameters\ -Name SignSecureChannel -Value 1
